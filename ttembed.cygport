@@ -1,0 +1,21 @@
+NAME="ttembed"
+VERSION=1.1
+RELEASE=1
+CATEGORY="Graphics"
+SUMMARY="Removes embedding limitations from TTFs"
+DESCRIPTION="Remove embedding limitations from TrueType fonts, by setting the
+fsType field in the OS/2 table to zero."
+HOMEPAGE="https://github.com/hisdeedsaredust/ttembed"
+SRC_URI="${HOMEPAGE}/archive/v${VERSION}/ttembed-v${VERSION}.tar.gz"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	cygmake
+}
+
+src_install() {
+	cd ${B}
+	dobin ttembed.exe
+	doman ttembed.1
+}
